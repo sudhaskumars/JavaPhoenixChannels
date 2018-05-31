@@ -16,16 +16,20 @@ public class Envelope {
 
     @JsonProperty
     private String ref;
+    
+     @JsonProperty
+    private String join_ref;
 
     @SuppressWarnings("unused")
     public Envelope() {
     }
 
-    public Envelope(final String topic, final String event, final JsonNode payload, final String ref) {
+    public Envelope(final String topic, final String event, final JsonNode payload, final String ref,final String join_ref) {
         this.topic = topic;
         this.event = event;
         this.payload = payload;
         this.ref = ref;
+         this.join_ref = join_ref;
     }
 
     public String getTopic() {
@@ -39,6 +43,10 @@ public class Envelope {
     public JsonNode getPayload() {
         return payload;
     }
+    public String getJoinRef() {
+        return join_ref;
+    }
+    
 
     /**
      * Helper to retrieve the value of "ref" from the payload
